@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43035E0618693A90005DF3FD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 43035E0518693A90005DF3FD /* main.c */; };
 		43035E0818693A90005DF3FD /* CompilerConstructionAssignment1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43035E0718693A90005DF3FD /* CompilerConstructionAssignment1.1 */; };
+		43035E10186942B5005DF3FD /* interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 43035E0F186942B5005DF3FD /* interpreter.c */; };
+		43035E12186942E0005DF3FD /* evalExpr.c in Sources */ = {isa = PBXBuildFile; fileRef = 43035E11186942E0005DF3FD /* evalExpr.c */; };
+		43035E141869431C005DF3FD /* getToken.c in Sources */ = {isa = PBXBuildFile; fileRef = 43035E131869431C005DF3FD /* getToken.c */; };
+		43035E1618694341005DF3FD /* readExpr.c in Sources */ = {isa = PBXBuildFile; fileRef = 43035E1518694341005DF3FD /* readExpr.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +29,12 @@
 
 /* Begin PBXFileReference section */
 		43035E0218693A90005DF3FD /* CompilerConstructionAssignment1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CompilerConstructionAssignment1; sourceTree = BUILT_PRODUCTS_DIR; };
-		43035E0518693A90005DF3FD /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		43035E0718693A90005DF3FD /* CompilerConstructionAssignment1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CompilerConstructionAssignment1.1; sourceTree = "<group>"; };
+		43035E0E1869428C005DF3FD /* exprParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = exprParser.h; sourceTree = "<group>"; };
+		43035E0F186942B5005DF3FD /* interpreter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interpreter.c; sourceTree = "<group>"; };
+		43035E11186942E0005DF3FD /* evalExpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = evalExpr.c; sourceTree = "<group>"; };
+		43035E131869431C005DF3FD /* getToken.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getToken.c; sourceTree = "<group>"; };
+		43035E1518694341005DF3FD /* readExpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readExpr.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +67,12 @@
 		43035E0418693A90005DF3FD /* CompilerConstructionAssignment1 */ = {
 			isa = PBXGroup;
 			children = (
-				43035E0518693A90005DF3FD /* main.c */,
 				43035E0718693A90005DF3FD /* CompilerConstructionAssignment1.1 */,
+				43035E0F186942B5005DF3FD /* interpreter.c */,
+				43035E0E1869428C005DF3FD /* exprParser.h */,
+				43035E131869431C005DF3FD /* getToken.c */,
+				43035E1518694341005DF3FD /* readExpr.c */,
+				43035E11186942E0005DF3FD /* evalExpr.c */,
 			);
 			path = CompilerConstructionAssignment1;
 			sourceTree = "<group>";
@@ -117,7 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43035E0618693A90005DF3FD /* main.c in Sources */,
+				43035E1618694341005DF3FD /* readExpr.c in Sources */,
+				43035E141869431C005DF3FD /* getToken.c in Sources */,
+				43035E12186942E0005DF3FD /* evalExpr.c in Sources */,
+				43035E10186942B5005DF3FD /* interpreter.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
