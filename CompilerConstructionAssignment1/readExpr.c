@@ -14,7 +14,7 @@
  <expression1> := <expr_op> <term> <expression1> | e
  <term> := <factor> <term1>
  <term1> := <term_op> <factor> <term1> | e
- <factor> := number | '(' <expression> ')'
+ <factor> := number | '-' number | '(' <expression> ')'
  <expr_op> := '+' | '-'
  <term_op> := '*' | '/'
  */
@@ -80,6 +80,18 @@ AST *readFactor(void)
 			e->val = tokenVal;
 			getToken();
 			return e;
+		case MINUS_OP:
+			getToken();
+			if (currentToken == NUM) {
+				e = (AST *)malloc(sizeof(AST));
+				e->op = NUM;
+				e->val = -tokenVal;
+				getToken();
+				return e;
+			} else {
+				fprintf(stderr, "bad expression: NUM is expected\n"); // Top-down parsing
+				exit(1);
+			}
 		case LEFT_PAR:
 			getToken();
 			e = readExpr();
@@ -91,7 +103,7 @@ AST *readFactor(void)
 				exit(1);
 			}
 		default:
-			fprintf(stderr, "bad expression: NUM or LEFT_PAR is expected\n"); // Top-down parsing
+			fprintf(stderr, "bad expression: NUM, MINUS_OP or LEFT_PAR is expected\n"); // Top-down parsing
 			exit(1);
 	}
 }
