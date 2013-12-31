@@ -10,6 +10,7 @@
  Top-Down Parser of Four Arithmetic Operations
  based on the following BNF.
  
+ BNF =======================================================
  <expression> := <term> <expression1>
  <expression1> := <expr_op> <term> <expression1> | e
  <term> := <factor> <term1>
@@ -17,6 +18,18 @@
  <factor> := number | '-' number | '(' <expression> ')'
  <expr_op> := '+' | '-'
  <term_op> := '*' | '/'
+ ===========================================================
+ 
+ TEST CASE =================================================
+ 0
+ 1
+ -0
+ -1
+ 2+3
+ -1+-0*4/2-3
+ 12*3 + 3*4 - 10
+ 12*(3+13)-10
+ ===========================================================
  */
 
 #include <stdio.h>
