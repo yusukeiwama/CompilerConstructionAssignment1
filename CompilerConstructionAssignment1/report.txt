@@ -1,0 +1,93 @@
+- Execution Result
+Test Case 1:
+12*3 + 3*4 - 10
+= 38
+Program ended with exit code: 0
+
+Test Case 2:
+12*(3+13)-10
+= 182
+Program ended with exit code: 0
+
+Test Case 3:
+ -10 / (-5) *3+3-(-1)  
+= 10
+Program ended with exit code: 0
+
+
+- Discussion
+To construct the interpreter which can parse times and over operator, parenthesis,
+ and unary operator '-', I wrote the code which can fulfill the BNF below.
+
+ <expression> := <term> <expression1>
+ <expression1> := <expr_op> <term> <expression1> | e
+ <term> := <factor> <term1>
+ <term1> := <term_op> <factor> <term1> | e
+ <factor> := number | '-' number | '(' <expression> ')'
+ <expr_op> := '+' | '-'
+ <term_op> := '*' | '/'
+
+<expression> means the term-sequences combined with '+' or '-' operator.
+<expression1> prevent the parser from the left recursive rule problem.
+<term> means the factor-sequences combined with '*' or '/' operator.
+<term1> also prevent the parser from the left recursive rule problem.
+<factor> means numbers, signed numbers, or expression with parenthesis.
+
+This parser handles signed numbers (unary operator) on building AST like,
+
+(in function readFactor())
+
+		case MINUS_OP:
+			getToken();
+			if (currentToken == NUM) {
+				e = (AST *)malloc(sizeof(AST));
+				e->op = NUM;
+				e->val = -tokenVal; // negative value
+				getToken();
+				return e;
+			} else {
+				fprintf(stderr, "bad expression: NUM is expected\n");
+				exit(1);
+			}
+			
+
+1. According to the test case 1, this interpreter fulfills requirements.
+
+To implement operators' priority, the parser calls readTerm() in readExpr().
+
+AST *readExpr(void)
+{
+    AST *e, *ee;
+	
+	e = readTerm();
+	
+    while (currentToken == PLUS_OP
+		   || currentToken == MINUS_OP) {
+		
+		ee = (AST *)malloc(sizeof(AST)); // look-ahead
+		ee->op = currentToken;
+		getToken();
+		ee->left = e;
+		ee->right = readTerm();
+		e = ee;
+    }
+    
+	return e;
+}
+
+2. According to the test case 1, this interpreter fulfills requirements.
+
+To implement parenthesis' priority, the parser calls readExpr() in readFactor().
+
+(in function readFactor())
+
+		case LEFT_PAR:
+			getToken();
+			e = readExpr();
+			if (currentToken == RIGHT_PAR) {
+				getToken();
+				return e;
+			} else {
+				fprintf(stderr, "bad expression: RIGHT_PAR is expected\n"); // Top-down parsing
+				exit(1);
+			}

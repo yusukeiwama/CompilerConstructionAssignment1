@@ -29,6 +29,7 @@
  -1+-0*4/2-3
  12*3 + 3*4 - 10
  12*(3+13)-10
+ -10 / (-5) *3+3-(-1)  
  ===========================================================
  */
 
@@ -98,7 +99,7 @@ AST *readFactor(void)
 			if (currentToken == NUM) {
 				e = (AST *)malloc(sizeof(AST));
 				e->op = NUM;
-				e->val = -tokenVal;
+				e->val = -tokenVal; // negative value
 				getToken();
 				return e;
 			} else {

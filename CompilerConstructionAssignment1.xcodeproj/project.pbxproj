@@ -35,6 +35,7 @@
 		43035E11186942E0005DF3FD /* evalExpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = evalExpr.c; sourceTree = "<group>"; };
 		43035E131869431C005DF3FD /* getToken.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getToken.c; sourceTree = "<group>"; };
 		43035E1518694341005DF3FD /* readExpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readExpr.c; sourceTree = "<group>"; };
+		437C9BEB1874CBBD00969358 /* report.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = report.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 				43035E131869431C005DF3FD /* getToken.c */,
 				43035E1518694341005DF3FD /* readExpr.c */,
 				43035E11186942E0005DF3FD /* evalExpr.c */,
+				437C9BEB1874CBBD00969358 /* report.txt */,
 			);
 			path = CompilerConstructionAssignment1;
 			sourceTree = "<group>";
@@ -239,6 +241,7 @@
 				43035E0D18693A90005DF3FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
